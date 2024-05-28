@@ -1,5 +1,5 @@
-import { Table } from 'antd'
-import { useMemo } from 'react'
+import { Table, Button } from 'antd'
+import { useMemo, useState } from 'react'
 
 
 const columns = [
@@ -71,6 +71,7 @@ const columns = [
   },
 ];
 function NormalTable() {
+	const [isRender, setIsRender] = useState(false)
   const data = useMemo(() => {
     const data = [];
     for (let i = 0; i < 10000; i++) {
@@ -83,7 +84,7 @@ function NormalTable() {
     }
     return data
   }, []);
-  const isRender = false;
+
   return (
     isRender ? (
       <Table
@@ -95,7 +96,16 @@ function NormalTable() {
         }}
         pagination={false}
       />
-    ) : '请手动开启'
+    ) : (
+			<Button
+				type='primary'
+				onClick={() => {
+					setIsRender(true)
+				}}
+			>
+				请手动开启
+			</Button>
+		)
   );
 }
 

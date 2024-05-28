@@ -99,7 +99,7 @@ function VirtualTable() {
       components={{
         body: {
           // 重写body属性
-          wrapper: (props) => <TableBody {...props} tbody={tableRef} data={data} />,
+          wrapper: (props) => <TableBody {...props} tbody={tableRef} />,
           row: (props) => <TableRow {...props} />
         }
       }}
